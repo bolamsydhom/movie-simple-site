@@ -11,8 +11,7 @@ body {
 * {
   margin: 0px;
   padding: 0px;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.05s ease-in-out;}
 
 @-webkit-keyframes toogle {
   0% {
@@ -167,8 +166,8 @@ svg {
 .toggle__wrapper nav ul li {
   padding: 1.5rem 0;
   cursor: pointer;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .toggle__wrapper nav ul li a {
@@ -180,8 +179,8 @@ svg {
 
 .toggle__wrapper nav ul li:hover {
   letter-spacing: 0.3rem;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .list-container {
@@ -431,6 +430,28 @@ svg {
   text-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.363);
 }
 
+
+@media (max-width: 610px){
+  .nav-bar__Home{
+    display: none;
+  }
+  .nav-bar__search input{
+    width: 60%;
+    transition: all 0.25s ease-in-out;
+  }
+}
+@media (max-width: 379px){
+.nav-bar__search{
+  margin-left: 35%;
+    transition: all 0.25s ease-in-out;
+
+}
+  
+  .nav-bar__search input {
+    width: 20%;
+    transition: all 0.25s ease-in-out;
+  }
+}
 .mt_1 {
   margin-top: 0.5rem;
 }

@@ -58,6 +58,10 @@ const Header = ({ searching }) => {
           <nav id='nav'>
             <ul id='tooglerUl'>
               <li className='toogle__wrapper__item'>
+                <i className='fa fa-home' aria-hidden='true'> </i>
+                <Link to=''> Home </Link>
+              </li>
+              <li className='toogle__wrapper__item'>
                 <i className='fa fa-pie-chart' aria-hidden='true'>
                   {' '}
                 </i>
