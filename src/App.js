@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+import HomePage from './containers/HomePage';
+import { Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header'
+
+function App(props) {
+
+  const [currentSearch, setSearch] = useState("");
+
+  const searchQuerey = (event) =>{
+    setSearch(event.target.value)    
+  }
+
+  if (!localStorage.getItem('results')) {
+    localStorage.setItem('results', JSON.stringify({result:[]}));
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        
+          <Header searching={searchQuerey}/>
+          <Switch>
+          <Route path='/' exact component={HomePage}></Route>
+          <Route path='/upcoming Movies/:page?' component={HomePage}></Route>
+          <Route path='/Now Playing/:page?' component={HomePage}></Route>
+          <Route path='/Top Rated/:page?' component={HomePage}></Route>
+          <Route path='/favorites' component={HomePage}></Route>
+          < Route path = '/search'
+          render = {(props) => <HomePage searchingQuery={currentSearch} {...props}/>
+          }></Route>
+
+          </Switch>
+
+    </React.Fragment>
   );
 }
 

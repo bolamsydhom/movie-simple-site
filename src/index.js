@@ -2,16 +2,42 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {
+    BrowserRouter,
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+} from 'react-router-dom';
+const app =( < BrowserRouter > < App /> </BrowserRouter> );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render( app , document.getElementById('root'));
+
+
+
+
+let toogle = false;
+document.getElementById('toggler').addEventListener('click', () => {
+    if (!toogle) {
+        document.querySelector('.toggle').style.display = 'block'
+        setTimeout(() => {
+            document.getElementById('nav').style.clipPath = 'circle(75%)'
+            toogle = true
+
+        }, 0.5);
+    } else {
+        document.getElementById('nav').style.clipPath = 'circle(0% at 5% -90px)'
+        toogle = false
+        setTimeout(() => {
+            document.querySelector('.toggle').style.display = 'none'
+
+        }, 900);
+
+    }
+
+})
+document.getElementById('tooglerUl').addEventListener('click', () => {
+    document.getElementById('nav').style.clipPath = 'circle(0% at 5% -90px)'
+    toogle = false
+    setTimeout(() => {
+        document.querySelector('.toggle').style.display = 'none'
+
+    }, 900);
+})
